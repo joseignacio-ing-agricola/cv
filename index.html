@@ -3,110 +3,245 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>José Ignacio Farías | Ingeniero Agrícola</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<title>José Ignacio Farías López | CV Profesional</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{background:#f1f5f9;color:#0f172a}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Inter',sans-serif;
+}
 
-/* NAV */
+/* VARIABLES DE COLOR */
+:root{
+  --bg-dark:#020617;
+  --bg-card:#020617f2;
+  --border-soft:rgba(148,163,184,.4);
+  --primary:#16a34a;
+  --primary-soft:#4ade80;
+  --accent:#ea580c;
+  --accent-soft:#fed7aa;
+  --text-main:#e5e7eb;
+  --text-muted:#9ca3af;
+}
+
+/* TEMA CLARO */
+body.light-theme{
+  --bg-dark:#f3f4f6;
+  --bg-card:#ffffff;
+  --border-soft:rgba(148,163,184,.7);
+  --primary:#15803d;
+  --primary-soft:#16a34a;
+  --accent:#c2410c;
+  --accent-soft:#fb923c;
+  --text-main:#020617;
+  --text-muted:#6b7280;
+}
+
+/* BODY PRINCIPAL */
+body{
+  background:
+    radial-gradient(circle at 0% 0%, var(--primary)0f, transparent 60%),
+    radial-gradient(circle at 100% 0%, var(--accent)0f, transparent 60%),
+    linear-gradient(160deg,#020617 0%,#020617 50%,#020617 100%);
+  color:var(--text-main);
+  line-height:1.6;
+}
+
+/* NAVEGACIÓN */
 nav{
-position:sticky;top:0;
-background:#022c22;color:white;
-padding:15px 6%;
-display:flex;justify-content:space-between;
-z-index:999;
+  position:sticky;top:0;background:rgba(15,23,42,.9);backdrop-filter:blur(18px);
+  padding:10px 5%;display:flex;justify-content:space-between;align-items:center;
+  border-bottom:1px solid var(--border-soft);z-index:20;
 }
-nav a{color:white;margin-left:20px;text-decoration:none;font-size:14px}
-
-/* HERO */
-header{
-padding:120px 10%;
-background:linear-gradient(rgba(2,44,34,0.85),rgba(2,44,34,0.85)),
-url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6');
-background-size:cover;
-color:white;
-text-align:center;
+body.light-theme nav{background:rgba(243,244,246,.98);}
+.nav-left{display:flex;align-items:center;gap:10px;}
+.nav-logo{
+  width:28px;height:28px;border-radius:8px;background:radial-gradient(circle at 20% 20%,#4ade80,#16a34a);
+  display:flex;align-items:center;justify-content:center;color:#022c22;font-weight:800;font-size:15px;
 }
-header h1{font-size:3rem;font-weight:800}
-header p{margin-top:10px;color:#bbf7d0;font-size:1.2rem}
-
-/* BOTONES */
-.btn{
-padding:12px 25px;
-background:#16a34a;
-color:white;
-border-radius:8px;
-text-decoration:none;
-margin:10px;
-display:inline-block;
-font-weight:600;
+nav strong{color:var(--primary-soft);font-size:13px;letter-spacing:1px;text-transform:uppercase;}
+.nav-right{display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.btn-primary,.btn-ghost{
+  border:none;padding:7px 14px;border-radius:999px;font-size:13px;cursor:pointer;
+  font-weight:600;display:flex;align-items:center;gap:6px;transition:.2s;
 }
-.btn:hover{background:#15803d}
+.btn-primary{background:#16a34a;color:#f9fafb;box-shadow:0 6px 18px rgba(22,163,74,.4);}
+.btn-primary:hover{transform:translateY(-1px);box-shadow:0 10px 24px rgba(22,163,74,.5);}
+.btn-ghost{border:1px solid var(--border-soft);background:transparent;color:var(--text-main);}
+.btn-ghost:hover{border-color:var(--primary);}
 
-/* SECCIONES */
-section{padding:70px 10%;max-width:1200px;margin:auto}
-h2{margin-bottom:35px;color:#022c22;font-size:2rem}
+/* CONTENIDO PRINCIPAL */
+main{max-width:1100px;margin:0 auto;padding:24px 5% 60px;}
 
-/* GRID */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:25px}
-
-/* CARD */
-.card{
-background:white;
-padding:25px;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
+/* HERO SECTION */
+.hero{
+  display:grid;grid-template-columns:260px minmax(0,1fr);gap:26px;align-items:start;
+  padding:24px 22px;margin-top:20px;border-radius:20px;background:var(--bg-card);
+  border:1px solid var(--border-soft);
 }
+body.light-theme .hero{background:linear-gradient(135deg,#f9fafb,#e5e7eb);}
+.hero-left{text-align:center;}
+.avatar-wrapper{
+  width:130px;height:130px;margin:0 auto 12px;border-radius:50%;overflow:hidden;
+  border:2px solid var(--primary-soft);
+}
+.avatar-inner{
+  width:100%;height:100%;background:#020617;display:flex;align-items:center;justify-content:center;
+}
+body.light-theme .avatar-inner{background:#e5e7eb;}
+.avatar-placeholder{font-size:46px;color:var(--primary-soft);}
+.hero-name{font-size:1.3rem;font-weight:700;}
+.hero-title{font-size:0.9rem;color:var(--accent-soft);margin-top:3px;}
+.print-header-line{display:none;margin-top:6px;width:3.5cm;height:2px;background:#16a34a;}
+.hero-contact{margin-top:10px;font-size:0.8rem;color:var(--text-muted);}
+.hero-contact div{margin-bottom:3px;}
+.hero-contact i{color:var(--primary-soft);margin-right:6px;width:14px;}
+.hero-right h1{font-size:1.6rem;font-weight:700;color:var(--text-main);}
+body.light-theme .hero-right h1{color:#111827;}
+.hero-right p{color:var(--text-muted);font-size:0.9rem;margin-top:6px;}
+.badges{margin-top:14px;display:flex;flex-wrap:wrap;gap:7px;flex-wrap:wrap;}
+.badge{
+  background:rgba(15,23,42,.9);border:1px solid var(--border-soft);padding:5px 10px;border-radius:999px;
+  font-size:11px;color:#e5e7eb;display:inline-flex;align-items:center;gap:6px;
+}
+body.light-theme .badge{background:#f9fafb;color:#111827;}
 
 /* KPI */
-.kpi{
-background:#022c22;
-color:white;
-padding:25px;
-border-radius:12px;
-text-align:center;
+.kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin-top:24px;}
+.kpi-box{
+  background:var(--bg-card);border:1px solid var(--border-soft);padding:14px 14px 10px;border-radius:14px;
 }
-.kpi h3{font-size:2rem;color:#4ade80}
-.kpi p{font-size:14px;margin-top:5px}
+body.light-theme .kpi-box{background:#ffffff;border-color:#e5e7eb;}
+.kpi-label{font-size:0.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);}
+.kpi-box h3{color:var(--primary-soft);font-size:1.5rem;margin-top:3px;}
+.kpi-box p{font-size:0.85rem;color:var(--text-main);}
+body.light-theme .kpi-box p{color:#111827;}
 
-/* PERFIL */
-.perfil{
-font-size:1.1rem;
-line-height:1.7;
-background:#ecfdf5;
-padding:25px;
-border-left:6px solid #16a34a;
-border-radius:10px;
+/* SECCIONES */
+section{margin-top:32px;}
+section h2{
+  color:var(--primary-soft);margin-bottom:14px;font-size:1rem;text-transform:uppercase;
+  letter-spacing:.12em;display:flex;align-items:center;gap:8px;
+}
+section h2 i{color:var(--accent-soft);}
+.section-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(148,163,184,.3),transparent);}
+
+/* CARDS */
+.card{
+  background:var(--bg-card);border:1px solid var(--border-soft);padding:16px 16px 12px;border-radius:12px;
+  margin-bottom:12px;line-height:1.6;font-size:0.9rem;
+}
+body.light-theme .card{background:#ffffff;border-color:#e5e7eb;}
+.card-title-row{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:4px;}
+.card-title-main{font-weight:600;}
+.card-title-meta{font-size:0.78rem;color:var(--text-muted);}
+.card-tag{font-size:0.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent-soft);}
+.card ul{margin-left:18px;margin-top:4px;}
+.card li{margin-bottom:4px;}
+
+/* GRID 2 COLUMNAS */
+.grid-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;}
+.chip{
+  display:inline-flex;align-items:center;gap:6px;border-radius:999px;border:1px solid var(--border-soft);
+  padding:4px 8px;font-size:0.75rem;color:var(--text-muted);margin:3px 6px 0 0;
 }
 
-/* IMAGEN */
-.img-box img{width:100%;border-radius:12px}
+/* MODAL */
+#cvModal{
+  display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.8);
+  backdrop-filter:blur(8px);align-items:center;justify-content:center;z-index:999;
+}
+.modal-box{
+  background:white;width:90%;max-width:800px;padding:18px;overflow:auto;max-height:90vh;
+  border-radius:14px;position:relative;color:#020617;
+}
+.close{position:absolute;top:10px;right:12px;cursor:pointer;font-size:18px;font-weight:bold;}
+.cv-box{border:1px solid #e5e7eb;padding:10px;margin-bottom:8px;border-radius:8px;font-size:0.9rem;}
 
-/* LISTAS */
-ul{margin-top:10px}
-li{margin-bottom:6px}
-
-/* CONTACTO */
-.contact-links a{
-display:inline-block;
-margin:8px;
-padding:10px 15px;
-background:#16a34a;
-color:white;
-border-radius:6px;
-text-decoration:none;
+/* RESPONSIVE WEB */
+@media(max-width:900px){
+  main{padding:20px 4% 50px;}
+  .hero{grid-template-columns:1fr;gap:20px;text-align:center;}
+  .hero-left{display:flex;flex-direction:column;align-items:center;}
+  .badges{justify-content:center;}
+}
+@media(max-width:768px){
+  nav{padding:8px 4%;flex-wrap:wrap;gap:8px;}
+  .nav-right{order:2;width:100%;justify-content:center;}
+  .nav-left{order:1;}
+  .kpi{grid-template-columns:1fr;}
+}
+@media(max-width:480px){
+  .hero{padding:18px 16px;}
+  .avatar-wrapper{width:110px;height:110px;}
+  section h2{font-size:0.9rem;}
+  .nav-right{flex-direction:column;width:100%;gap:6px;}
 }
 
-/* CARTA */
-.carta{
-background:#ffffff;
-padding:30px;
-border-radius:12px;
-box-shadow:0 10px 25px rgba(0,0,0,0.05);
-line-height:1.7;
+/* ===== PDF - COPIA EXACTA DE LA PÁGINA CON AJUSTES DE IMPRESIÓN ===== */
+@media print{
+  /* Reset completo para mantener diseño pero optimizado impresión */
+  body{
+    background:white !important;color:#111827 !important;-webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+  }
+  
+  nav,#cvModal{display:none !important;}
+  main{max-width:100%;padding:1.2cm 1.5cm !important;box-shadow:none !important;}
+  
+  /* Mantener estructura pero con colores neutros para impresión */
+  .hero{
+    background:#f8fafc !important;border:1px solid #e2e8f0 !important;
+    box-shadow:0 1px 3px rgba(0,0,0,0.1) !important;
+  }
+  
+  .hero-name{font-size:1.4rem !important;color:#1e293b !important;}
+  .hero-title{color:#475569 !important;}
+  .hero-contact{color:#64748b !important;font-size:0.8rem !important;}
+  .hero-contact i{color:#16a34a !important;}
+  
+  .hero-right h1{color:#1e293b !important;font-size:1.4rem !important;}
+  .hero-right p{color:#475569 !important;}
+  
+  .badge{
+    background:#f1f5f9 !important;border-color:#cbd5e1 !important;color:#334155 !important;
+  }
+  
+  .kpi-box{
+    background:#ffffff !important;border-color:#cbd5e1 !important;
+    box-shadow:0 1px 2px rgba(0,0,0,0.05) !important;
+  }
+  
+  .card{
+    background:#ffffff !important;border-color:#e2e8f0 !important;
+    box-shadow:0 1px 3px rgba(0,0,0,0.05) !important;
+  }
+  
+  section h2{color:#1e293b !important;}
+  section h2 i{color:#16a34a !important;}
+  
+  /* Mostrar línea corporativa en PDF */
+  .print-header-line{display:block !important;}
+  
+  /* Ajustes tipográficos para mejor legibilidad */
+  body{font-size:11pt !important;line-height:1.5 !important;}
+  .card{font-size:10pt !important;}
+  
+  /* Conservar colores clave para identidad */
+  .kpi-box h3{color:#16a34a !important;}
+}
+
+/* RESPONSIVE PDF */
+@media print and (max-width: 600px){
+  main{padding:0.8cm 1cm !important;}
+  .hero{grid-template-columns:1fr !important;}
+  .kpi{grid-template-columns:1fr !important;}
 }
 </style>
 </head>
@@ -114,203 +249,281 @@ line-height:1.7;
 <body>
 
 <nav>
-<span><strong>Ing. José Ignacio Farías</strong></span>
-<div>
-<a href="#perfil">Perfil</a>
-<a href="#impacto">Impacto</a>
-<a href="#experiencia">Experiencia</a>
-<a href="#certificaciones">Certificaciones</a>
-<a href="#habilidades">Habilidades</a>
-<a href="#carta">Carta</a>
-<a href="#contacto">Contacto</a>
-</div>
+  <div class="nav-left">
+    <div class="nav-logo">J</div>
+    <strong>CV Profesional · Ingeniería Agrícola</strong>
+  </div>
+  <div class="nav-right">
+    <button class="btn-ghost" id="theme-toggle">
+      <i class="fa-regular fa-moon"></i> Tema
+    </button>
+    <button class="btn-ghost" onclick="document.getElementById('cvModal').style.display='flex'">
+      <i class="fa-regular fa-eye"></i> Resumen
+    </button>
+    <button class="btn-primary" onclick="downloadPDF()">
+      <i class="fa-solid fa-file-arrow-down"></i> Descargar PDF
+    </button>
+  </div>
 </nav>
 
-<header>
-<h1>Ingeniería Agrícola Aplicada</h1>
-<p>Gestión hídrica • Riego • Productividad agrícola</p>
+<main id="cv-content">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="avatar-wrapper">
+        <div class="avatar-inner">
+          <!-- Reemplaza por tu foto: <img src="tu-foto.jpg" alt="José Ignacio Farías López"> -->
+          <div class="avatar-placeholder"><i class="fa-solid fa-leaf"></i></div>
+        </div>
+      </div>
+      <div class="hero-name">José Ignacio Farías López</div>
+      <div class="hero-title">Ingeniero Agrícola · Sustentabilidad & Tecnología</div>
+      <div class="print-header-line"></div>
+      <div class="hero-contact">
+        <div><i class="fa-solid fa-location-dot"></i> El Litre 1796, Petorca, Valparaíso</div>
+        <div><i class="fa-solid fa-phone"></i> +56 9 7150 5118</div>
+        <div><i class="fa-solid fa-envelope"></i> farias.l.jose95@gmail.com</div>
+        <div><i class="fa-brands fa-linkedin"></i> linkedin.com/in/jose-ignacio-farias-lopez</div>
+        <div><i class="fa-regular fa-id-card"></i> Rut: 18.862.839-7 · 30 años · Licencia Clase B</div>
+      </div>
+    </div>
 
-<a href="CV_Jose_Ignacio_Farias_2026.pdf" target="_blank" class="btn">👁 Ver CV</a>
-<a href="CV_Jose_Ignacio_Farias_2026.pdf" download class="btn">📄 Descargar CV</a>
-</header>
+    <div class="hero-right">
+      <h1>Especialista en diseño regenerativo y gestión hídrica para agricultura resiliente</h1>
+      <p>
+        Ingeniero Agrícola con experiencia comprobada en proyectos de sostenibilidad, adaptación al cambio climático
+        y agricultura regenerativa. Especializado en compostaje, biofertilización y tecnología geoespacial para
+        manejo eficiente de recursos naturales. Logros cuantificables: -25% costos fertilización, +30% calidad suelo.
+      </p>
+      <div class="badges">
+        <div class="badge"><i class="fa-solid fa-seedling"></i> Agricultura Regenerativa</div>
+        <div class="badge"><i class="fa-solid fa-droplet"></i> Riego Tecnificado</div>
+        <div class="badge"><i class="fa-solid fa-satellite-dish"></i> QGIS & AutoCAD</div>
+        <div class="badge"><i class="fa-solid fa-microscope"></i> Biotecnología</div>
+        <div class="badge"><i class="fa-solid fa-code"></i> Programación Agrícola</div>
+      </div>
+    </div>
+  </section>
 
-<!-- PERFIL -->
-<section id="perfil">
-<h2>Perfil Profesional</h2>
+  <!-- KPI -->
+  <section class="kpi">
+    <div class="kpi-box">
+      <div class="kpi-label">Eficiencia Fertilización</div>
+      <h3>-25%</h3>
+      <p>Reducción de costos mediante sistema de compostaje adaptado a residuos locales</p>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-label">Salud del Suelo</div>
+      <h3>+30%</h3>
+      <p>Mejora en fertilidad mediante biofertilización y manejo regenerativo</p>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-label">Productividad</div>
+      <h3>+20%</h3>
+      <p>Incremento rendimiento agrícola productores asesorados Petorca</p>
+    </div>
+  </section>
 
-<div class="grid">
-<div class="perfil">
-Ingeniero Agrícola con sólida formación en gestión hídrica, diseño de riego tecnificado y optimización de sistemas productivos en condiciones de escasez hídrica.
+  <!-- PERFIL -->
+  <section id="perfil">
+    <h2><i class="fa-solid fa-user-tie"></i> Perfil Profesional <span class="section-line"></span></h2>
+    <div class="card">
+      Ingeniero Agrícola con sólida experiencia en proyectos de sostenibilidad y adaptación al cambio climático en sistemas agrícolas. Especializado en técnicas regenerativas, fertilización orgánica y manejo eficiente del agua. Domino herramientas tecnológicas como QGIS, AutoCAD y programación aplicada a agricultura (Python, Java, Visual Studio Code). Enfoque en soluciones innovadoras que integran criterios técnicos, económicos y sociales.
+    </div>
+  </section>
 
-Experiencia en terreno liderando equipos de trabajo, ejecutando programas agrícolas y tomando decisiones basadas en variables climáticas, edáficas y productivas.
+  <!-- EXPERIENCIA -->
+  <section id="exp">
+    <h2><i class="fa-solid fa-briefcase"></i> Experiencia Profesional <span class="section-line"></span></h2>
+    
+    <div class="card">
+      <div class="card-title-row">
+        <div>
+          <div class="card-title-main">Administrador de Campo – Agrícola Santa Catalina (Petorca)</div>
+          <div class="card-title-meta">Enero 2024 – Marzo 2025</div>
+        </div>
+        <div class="card-tag">Gestión Predial</div>
+      </div>
+      <ul>
+        <li>Sistema de compostaje: -25% costos fertilización, +30% calidad suelo</li>
+        <li>Manejo integral frutales hueso/pepita: conservación agua y suelo</li>
+        <li>Asesoría sustentable productores cítricos, paltos y hortalizas</li>
+      </ul>
+    </div>
 
-Orientado a resultados medibles, con foco en eficiencia del uso del agua, aumento de productividad y desarrollo sostenible.
+    <div class="card">
+      <div class="card-title-row">
+        <div>
+          <div class="card-title-main">Investigador FONDECYT N°11200702 – INIA (Chile)</div>
+          <div class="card-title-meta">Noviembre 2022 – Marzo 2023</div>
+        </div>
+        <div class="card-tag">Investigación</div>
+      </div>
+      <ul>
+        <li>Diversidad genética microbioma tomate bajo estrés hídrico</li>
+        <li>Coordinación equipo técnico: análisis resiliencia cambio climático</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title-row">
+        <div>
+          <div class="card-title-main">Encargado Administración – SETCONT (Chile)</div>
+          <div class="card-title-meta">Noviembre 2021 – Febrero 2022</div>
+        </div>
+        <div class="card-tag">Gestión Administrativa</div>
+      </div>
+      <ul>
+        <li>Gestión contable y administración recursos financieros</li>
+        <li>Manejo datos e información económica</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-title-row">
+        <div>
+          <div class="card-title-main">Consultor Ventas – Viña Espaldares del Maipo S.A.</div>
+          <div class="card-title-meta">Noviembre 2021 – Enero 2022</div>
+        </div>
+        <div class="card-tag">Comercial</div>
+      </div>
+      <ul>
+        <li>Asesoría vitivinícola: +10% ventas minoristas</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FORMACIÓN -->
+  <section id="form">
+    <h2><i class="fa-solid fa-graduation-cap"></i> Formación Académica <span class="section-line"></span></h2>
+    <div class="card">
+      <ul>
+        <li><strong>Ingeniero Agrícola</strong> – INACAP Santiago Sur (Graduado agosto 2022)</li>
+        <li><strong>Ingeniería Geomensura</strong> (incompleta) – INACAP Maipú (2017)</li>
+        <li><strong>Técnico Metalurgia Extractiva</strong> – Liceo Cabildo (2012)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROYECTOS -->
+  <section id="proj">
+    <h2><i class="fa-solid fa-diagram-project"></i> Proyectos Destacados <span class="section-line"></span></h2>
+    <div class="card">
+      <ul>
+        <li><strong>Compostaje Santa Catalina:</strong> -25% costos, +30% fertilidad suelo</li>
+        <li><strong>Microbioma tomate INIA:</strong> Estrategias resiliencia cambio climático</li>
+        <li><strong>Asesoría Petorca:</strong> +20% rendimiento productores locales</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- HABILIDADES -->
+  <section id="skills">
+    <h2><i class="fa-solid fa-gears"></i> Habilidades Técnicas <span class="section-line"></span></h2>
+    <div class="grid-2">
+      <div class="card">
+        <ul>
+          <li><strong>QGIS</strong> (intermedio): Análisis geoespacial, planificación territorial</li>
+          <li><strong>ArcGIS:</strong> Análisis imágenes satelitales</li>
+          <li><strong>AutoCAD:</strong> Diseño sistemas riego e infraestructuras</li>
+          <li><strong>Excel:</strong> Análisis y visualización datos agrícolas</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul>
+          <li><strong>Idiomas:</strong> Español (nativo), Inglés (intermedio técnico)</li>
+          <li><strong>Programación:</strong> Python, Java, Visual Studio Code</li>
+          <li>Liderazgo equipos multidisciplinarios</li>
+          <li>Gestión proyectos sostenibilidad</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICACIONES -->
+  <section id="cert">
+    <h2><i class="fa-solid fa-certificate"></i> Certificaciones <span class="section-line"></span></h2>
+    <div class="grid-2">
+      <div class="card">
+        <ul>
+          <li>Diseño Predial Regeneración – Escuela Permacultura (2025)</li>
+          <li>Cerezos Calidad – Mundoagro Capacita (2024)</li>
+          <li>Nutrición Frutales – Mundoagro Capacita (2024)</li>
+          <li>Drones Hídrica – CIREN (2024)</li>
+        </ul>
+      </div>
+      <div class="card">
+        <ul>
+          <li>Biotecnología – Croplife Latin America (2024)</li>
+          <li>Proyectos Innovación – FIA (2023)</li>
+          <li>QGIS/ArcGIS – Instituto GIS (2023)</li>
+          <li>Riego Tecnificado – AGROMET (2022)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- MODAL RESUMEN -->
+<div id="cvModal">
+  <div class="modal-box">
+    <span class="close" onclick="document.getElementById('cvModal').style.display='none'">✖</span>
+    <div class="cv-box">
+      <strong>JOSÉ IGNACIO FARÍAS LÓPEZ</strong><br>
+      Ingeniero Agrícola – Especialista Sustentabilidad y Tecnología Agrícola
+    </div>
+    <div class="cv-box">
+      Petorca, Valparaíso | +56 9 7150 5118 | farias.l.jose95@gmail.com | LinkedIn
+    </div>
+    <div class="cv-box"><strong>EXPERIENCIA:</strong> Agrícola Santa Catalina, INIA, SETCONT, Viña Maipo</div>
+    <div class="cv-box"><strong>FORMACIÓN:</strong> Ingeniero Agrícola INACAP + estudios técnicos</div>
+    <div class="cv-box"><strong>LOGROS:</strong> -25% costos fertilizantes, +30% calidad suelo, +20% rendimiento</div>
+  </div>
 </div>
 
-<div class="img-box">
-<img src="https://images.unsplash.com/photo-1560493676-04071c5f467b">
-</div>
-</div>
-</section>
+<!-- LIBRERÍA PDF + SCRIPTS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" 
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+function downloadPDF(){
+  const element = document.getElementById('cv-content');
+  const opt = {
+    margin: [0.5, 0.5, 0.5, 0.5],
+    filename: 'CV_Jose_Ignacio_Farias_Lopez_2026.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { 
+      scale: 2, 
+      useCORS: true,
+      letterRendering: true,
+      allowTaint: true
+    },
+    jsPDF: { 
+      unit: 'in', 
+      format: 'a4', 
+      orientation: 'portrait',
+      compress: true
+    }
+  };
+  html2pdf().set(opt).from(element).save();
+}
 
-<!-- KPIs -->
-<section id="impacto">
-<h2>Impacto Técnico</h2>
-
-<div class="grid">
-<div class="kpi"><h3>+25%</h3><p>Productividad</p></div>
-<div class="kpi"><h3>-30%</h3><p>Ahorro hídrico</p></div>
-<div class="kpi"><h3>90%</h3><p>Eficiencia riego</p></div>
-<div class="kpi"><h3>-20%</h3><p>Costos</p></div>
-</div>
-</section>
-
-<!-- EXPERIENCIA -->
-<section id="experiencia">
-<h2>Experiencia Profesional</h2>
-
-<div class="grid">
-
-<div class="card">
-<strong>Administrador de Campo</strong>
-<ul>
-<li>Programación de riego basada en demanda hídrica</li>
-<li>Optimización del uso del agua</li>
-<li>Supervisión de equipos en terreno</li>
-<li>Control de indicadores productivos</li>
-</ul>
-</div>
-
-<div class="card">
-<strong>Investigador INIA</strong>
-<ul>
-<li>Evaluación de estrés hídrico en cultivos</li>
-<li>Análisis de datos experimentales</li>
-<li>Apoyo en informes técnicos</li>
-</ul>
-</div>
-
-<div class="card">
-<strong>Asistente de Campo</strong>
-<ul>
-<li>Control de riego y producción</li>
-<li>Registro de datos agrícolas</li>
-</ul>
-</div>
-
-</div>
-</section>
-
-<!-- CERTIFICACIONES -->
-<section id="certificaciones">
-<h2>Certificaciones</h2>
-
-<div class="grid">
-
-<div class="card">
-<ul>
-<li>Diseño de riego – INIA</li>
-<li>Optimización riego tecnificado</li>
-<li>Inspección con drones – CIREN</li>
-</ul>
-</div>
-
-<div class="card">
-<ul>
-<li>Protección de suelos – SAG</li>
-<li>Permacultura aplicada</li>
-<li>Regeneración de suelos</li>
-</ul>
-</div>
-
-<div class="card">
-<ul>
-<li>Formulación de proyectos – FIA</li>
-<li>Biotecnología agrícola</li>
-<li>Sustentabilidad productiva</li>
-</ul>
-</div>
-
-</div>
-</section>
-
-<!-- HABILIDADES -->
-<section id="habilidades">
-<h2>Habilidades</h2>
-
-<div class="grid">
-
-<div class="card">
-<strong>Técnicas</strong>
-<ul>
-<li>ET0, Kc, balance hídrico</li>
-<li>Manejo de suelos (pH, CE)</li>
-<li>QGIS, AutoCAD, Excel</li>
-</ul>
-</div>
-
-<div class="card">
-<strong>Blandas</strong>
-<ul>
-<li>Liderazgo en terreno</li>
-<li>Trabajo con agricultores</li>
-<li>Resolución de problemas</li>
-<li>Comunicación efectiva</li>
-</ul>
-</div>
-
-<div class="card">
-<strong>Competencias</strong>
-<ul>
-<li>Enfoque en resultados</li>
-<li>Planificación y organización</li>
-<li>Toma de decisiones</li>
-</ul>
-</div>
-
-</div>
-</section>
-
-<!-- CARTA -->
-<section id="carta">
-<h2>Carta de Presentación</h2>
-
-<div class="carta">
-<p>Estimado/a:</p>
-
-<p>
-Ingeniero Agrícola con experiencia en gestión hídrica, riego tecnificado y optimización productiva en condiciones de escasez hídrica.
-</p>
-
-<p>
-He liderado equipos en terreno y ejecutado programas agrícolas orientados a mejorar la eficiencia del uso del agua y la productividad.
-</p>
-
-<p>
-Me interesa aportar en instituciones enfocadas en desarrollo rural y gestión de recursos naturales.
-</p>
-
-<p><strong>José Ignacio Farías López</strong></p>
-</div>
-</section>
-
-<!-- CONTACTO -->
-<section id="contacto">
-<h2>Contacto</h2>
-
-<div class="card">
-<p>📞 +56 9 7150 5118</p>
-<p>✉ farias.l.jose95@gmail.com</p>
-
-<div class="contact-links">
-<a href="https://wa.me/56971505118">WhatsApp</a>
-<a href="#">LinkedIn</a>
-<a href="#">Instagram</a>
-<a href="#">GitHub</a>
-</div>
-
-</div>
-</section>
+// CONTROL TEMA CLARO/OSCuro
+const body = document.body;
+const themeToggle = document.getElementById('theme-toggle');
+function applyTheme(theme) {
+  body.classList.toggle('light-theme', theme === 'light');
+  themeToggle.innerHTML = theme === 'light' ? 
+    '<i class="fa-regular fa-sun"></i> Claro' : 
+    '<i class="fa-regular fa-moon"></i> Oscuro';
+  localStorage.setItem('theme', theme);
+}
+const savedTheme = localStorage.getItem('theme') || 'dark';
+applyTheme(savedTheme);
+themeToggle.onclick = () => {
+  const isLight = body.classList.contains('light-theme');
+  applyTheme(isLight ? 'dark' : 'light');
+};
+</script>
 
 </body>
 </html>
